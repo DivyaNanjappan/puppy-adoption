@@ -19,7 +19,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.ui.layout.HeightSpacer
 import com.puppyadoption.androiddevchallenge.R
 import com.puppyadoption.androiddevchallenge.model.Puppy
 import com.puppyadoption.androiddevchallenge.ui.theme.MyTheme
