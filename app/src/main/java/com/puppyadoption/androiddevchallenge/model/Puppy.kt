@@ -60,7 +60,7 @@ data class Puppy(
         private val ages = arrayListOf(
             "2",
             "3",
-            "1",
+            "5",
             "4"
         )
 

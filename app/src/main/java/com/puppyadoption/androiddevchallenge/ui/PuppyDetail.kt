@@ -24,6 +24,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,21 +36,25 @@ import com.puppyadoption.androiddevchallenge.ui.theme.MyTheme
 @Composable
 fun PuppyDetail(puppyId: Int, upPress: () -> Unit) {
     val puppy = Puppy.getPuppies().first { it.id == puppyId }
-    Column(
-        modifier = Modifier
-            .fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+    Column {
         ToolBar(puppy = puppy, upPress)
 
-        Column(
+        Surface(
+            color = colorResource(id = R.color.color_bg),
             modifier = Modifier
                 .fillMaxWidth()
-                .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .fillMaxHeight()
         ) {
-            PuppyImage(puppy = puppy)
-            PuppyContent(puppy = puppy)
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()
+                    .verticalScroll(rememberScrollState()),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                PuppyImage(puppy = puppy)
+                PuppyContent(puppy = puppy)
+            }
         }
     }
 }
@@ -122,7 +127,7 @@ fun PuppyContent(puppy: Puppy) {
             ) {
 
                 OutlinedButton(
-                    onClick = {  },
+                    onClick = { },
                     border = BorderStroke(1.dp, colorPrimary),
                     modifier = Modifier
                         .padding(4.dp)
@@ -134,14 +139,14 @@ fun PuppyContent(puppy: Puppy) {
                         modifier = Modifier
                             .fillMaxWidth()
                             .wrapContentHeight(),
-                        text = "${puppy.age}\nAge",
+                        text = "${puppy.age} yrs\nAge",
                         style = typography.body1,
                         textAlign = TextAlign.Center
                     )
                 }
 
                 OutlinedButton(
-                    onClick = {  },
+                    onClick = { },
                     border = BorderStroke(1.dp, colorPrimary),
                     modifier = Modifier
                         .padding(4.dp)
@@ -160,7 +165,7 @@ fun PuppyContent(puppy: Puppy) {
                 }
 
                 OutlinedButton(
-                    onClick = {  },
+                    onClick = { },
                     border = BorderStroke(1.dp, colorPrimary),
                     modifier = Modifier
                         .padding(4.dp)
